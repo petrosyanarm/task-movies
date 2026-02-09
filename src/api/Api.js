@@ -9,22 +9,19 @@ export const api=axios.create({
 })
 
 export const searchMovies = async (query) => {
-  try{
     const res = await api.get(`${BASE_URL}?apikey=${API_KEY}&s=${query}`);
     const data = res.data.Search;
     return data;
-  }catch(error){
-    console.log(error)
-  }
 };
 
 export const getMovies=async(id)=>{
-  try{
     const res=await api.get(`${BASE_URL}?apikey=${API_KEY}&i=${id}`);
     const data=res.data;
     return data;
-    // console.log(data)
-  }catch(error){
-    console.log(error)
-  }
 }
+
+export const homeMovies = async (query='star') => {
+    const res = await api.get(`${BASE_URL}?apikey=${API_KEY}&s=${query}`);
+    const data = res.data.Search;
+    return data;
+};

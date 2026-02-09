@@ -5,30 +5,33 @@ import { useMoviesStore } from "@/store/useMoviesStore";
 import MoviePoster from "@/components/movie/MoviePoster";
 import MovieRatings from "@/components/movie/MovieRatings";
 
-function currentMoviePage() {
+function MoviesPage() {
     const { id } = useParams();
     const { currentMovie, setCurrentMovie } = useMoviesStore();
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+    const [error,setError]=useState(null);
     useEffect(() => {
         const getMovie = async () => {
-            setLoading(true)
+            setLoading(true);
+            try{
+            setError(null);
             const data = await getMovies(id);
             setCurrentMovie(data);
             setLoading(false);
+        }catch(error){
+            setError('Failed to load movie.')
+        }
         };
         getMovie();
     }, [id]);
-
-    if (!currentMovie) {
-        return <p className="text-white p-6">...</p>;
-    }
-
-    if (loading) return <p className="text-white p-6">Loading...</p>;
+    
     return (
         <div className="px-6 py-6 text-white flex">
+            {loading && <p className="text-base text-white">...</p>}
+            {error && <p className="text-base text-red-600">{error}</p>}
             <MoviePoster currentMovie={currentMovie}/>
             <MovieRatings currentMovie={currentMovie}/>
         </div>
     )
 }
-export default currentMoviePage;
+export default MoviesPage;

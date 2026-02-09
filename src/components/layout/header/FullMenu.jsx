@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 
 function FullMenu({open,setOpen}) {
     return(
-        <div className={`absolute top-0 left-0 w-full h-screen z-999 bg-neutral-900 text-white transition-transform duration-800 ease-in-out ${open ? "translate-y-0" : "-translate-y-full"}`}>
+        <div className={`absolute top-0 left-0 w-full h-210 z-999 bg-neutral-900 text-white transition-transform duration-800 ease-in-out ${open ? "translate-y-0" : "-translate-y-full"}`}>
             <div className="max-w-7xl w-full mx-auto">
                 <div className="px-10 pt-6 pb-2 flex justify-between">
                     <div className="w-[9%] flex justify-center items-center">

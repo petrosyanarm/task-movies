@@ -16,7 +16,7 @@ function SearchDropdown() {
   const [selected, setSelected] = useState(SEARCH_TYPES[0]);
   const [loading, setLoading] = useState(false)
   const [query, setQuery] = useState('');
-  const [error,setError]=useState(false);
+  const [error,setError]=useState(null);
   const debouncedQuery = useDebounce(query, 500);
   const navigate = useNavigate();
   const ref = useRef(null);
@@ -35,27 +35,33 @@ function SearchDropdown() {
   useEffect(() => {
     if (!debouncedQuery) {
       setMovies([]);
-      // setOpenDropdown(false);
+      setOpenDropdown(false);
       return;
     }
     const fetchMovies = async () => {
       setLoading(true);
-      const data = await searchMovies(debouncedQuery);
-      setMovies(data || []);
-      setLoading(false);
-      setOpenDropdown(true);
-      console.log(data)
-      console.log(debouncedQuery)
+      try{
+        setError(null)
+        const data = await searchMovies(debouncedQuery);
+        setMovies(data || []);
+        setLoading(false);
+        setOpenDropdown(true);
+      }catch(error){
+        setError('Failed to load movies.')
+      }
     };
     fetchMovies();
-  }, [debouncedQuery, setMovies]);
+  }, [debouncedQuery]);
 
   const handleSearch = async () => {
-    const res = await searchMovies(query)
-    setMovies(res)
-    navigate('/find')
-    console.log(res)
-    setOpenDropdown(false)
+    try{
+      const res = await searchMovies(query)
+      setMovies(res)
+      navigate('/find')
+      setOpenDropdown(false)
+    }catch(error){
+      setError('Failed to load movies.')
+    }
   }
   return (
     <div className="flex relative rounded-[5px] bg-white">
@@ -80,6 +86,8 @@ function SearchDropdown() {
         <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} className="flex-1 px-3 py-1 pl-40 focus:outline-none focus:ring-2 focus:ring-yellow" />
         {openDropdown && movies.length > 0 && (
           <div ref={ref} className="absolute top-full left-0 w-full bg-neutral-900 text-white rounded shadow z-50">
+            {loading && <p className="text-base text-white">Loading ... </p>}
+            {error && <p className="text-base text-red-600">{error}</p>}
             {movies.map((movie) => (
               <div key={movie.imdbID} onClick={() => {
                 navigate(`/movie/${movie.imdbID}`);
@@ -108,6 +116,7 @@ function SearchDropdown() {
           </Button>
         </div>
       </div>
+      {error && <p className="text-base text-red-600">{error}</p>}
     </div>
   );
 }
