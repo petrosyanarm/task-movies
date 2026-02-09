@@ -13,7 +13,7 @@ function DefaultLayout() {
             </div>
             <div className="bg-black">
                 <div className="w-full max-w-7xl mx-auto">
-                    {/* <Footer /> */}
+                    <Footer />
                 </div>
             </div>
         </div>

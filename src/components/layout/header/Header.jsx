@@ -21,9 +21,9 @@ function Header() {
                             <RxHamburgerMenu className="text-white" />
                             <span className="text-white font-bold text-[16px]">Menu</span>
                         </Button>
-                        {/* <FullMenu open={open} setOpen={setOpen}/>      */}
+                        <FullMenu open={open} setOpen={setOpen}/>     
                     </div>
-                    <div className="w-[26%]">
+                    <div className="w-170">
                         <SearchDropdown/>
                     </div>
                     <Button variant={'primary'}>

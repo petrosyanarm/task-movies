@@ -1,7 +1,5 @@
 import { useMoviesStore } from "@/store/useMoviesStore";
-import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { searchMovies } from "@/api/Api";
 
 
 function SearchPage() {
