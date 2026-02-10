@@ -3,42 +3,41 @@ import SearchDropdown from "@/components/layout/header/SearchDropdown";
 import Button from "@/components/ui/Button";
 import LanguageDropdown from "@/components/layout/header/LanguageDropdown";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import FullMenu from "@/components/layout/header/FullMenu";
+import { useMoviesStore } from "@/store/useMoviesStore";
 function Header() {
-    const[open,setOpen]=useState(false)
-    const navigate=useNavigate()
+    const { setOpenMenu } = useMoviesStore()
+    const navigate = useNavigate()
     return (
         <div className="w-full bg-neutral-900">
-            <div className="max-w-7xl w-full mx-auto">
-                <div className="px-3 py-3 flex gap-4 items-center">
-                    <div className="flex gap-2 items-center">
-                    <div className="bg-yellow px-1 cursor-pointer rounded-lg" onClick={()=>navigate('/')}>
-                        <span className="text-black text-[24px] font-bold">IMDb</span>
-                    </div>
-                    <div>
-                        <Button variant={'primary'} onClick={()=>setOpen(!open)}>
+            <div className="max-w-7xl mx-auto px-3">
+                <div className="flex items-center justify-between py-3">
+                    <div className="flex items-center gap-2 flex-1">
+                        <div className="bg-yellow px-1 cursor-pointer rounded-lg" onClick={() => navigate('/')}>
+                            <span className="text-black text-[24px] font-bold">IMDb</span>
+                        </div>
+                        <Button variant="primary" className="flex items-center gap-1" onClick={() => setOpenMenu(true)}>
                             <RxHamburgerMenu className="text-white" />
-                            <span className="text-white font-bold text-[16px]">Menu</span>
+                            <span className="hidden lg:block text-white font-bold text-[16px]">Menu</span>
                         </Button>
-                        <FullMenu open={open} setOpen={setOpen}/>     
+                        <FullMenu />
+                        <div className="flex-1 max-w-180">
+                            <SearchDropdown />
+                        </div>
                     </div>
-                    <div className="w-170">
-                        <SearchDropdown/>
-                    </div>
-                    <Button variant={'primary'}>
-                        <span className="text-white text-[14px] font-bold">IMDb<span className="text-[14px] font-bold text-blue-400">Pro</span></span>
-                    </Button>
-                    </div>
-                    <div className="flex gap-3 items-center">
-                    <Button variant={'primary'}>
-                        <span className="text-white text-[14px] font-bold">Watchlist</span>
-                    </Button>
-                    <Button variant={'primary'}>
-                        <span className="text-white text-[14px] font-bold">Sign in</span></Button>
-                    <div>
+                    <div className="flex items-center gap-2">
+                        <Button variant="primary" className="hidden lg:flex">
+                            <span className="text-white font-bold text-[14px]">
+                                IMDb <span className="text-blue-400">Pro</span>
+                            </span>
+                        </Button>
+                        <Button variant="primary" className="hidden lg:flex">
+                            <span className="text-white font-bold text-[14px]">Watchlist</span>
+                        </Button>
+                        <Button variant={'primary'} className="px-2 lg:px-3">
+                            <span className="text-white text-[11px] lg:text-[14px] font-bold">Sign in</span>
+                        </Button>
                         <LanguageDropdown />
-                    </div>
                     </div>
                 </div>
             </div>

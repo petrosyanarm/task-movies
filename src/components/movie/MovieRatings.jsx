@@ -3,37 +3,48 @@ import { GoStar } from "react-icons/go";
 import Button from "@/components/ui/Button";
 function MovieRatings({ currentMovie }) {
     return (
-        <div className="flex gap-2 ">
-            <div className="px-2 flex flex-col gap-1">
-                <span className="text-neutral-500 text-[12px] font-bold">IMDb RATING</span>
-                <Button variant={'five'}>
-                    <FaStar className="text-yellow text-[24px]" />
-                    <div className="flex flex-col">
-                        <div className="flex">
-                            <span className="text-[18px]">{currentMovie.imdbRating}
-                                <span className="text-[14px]">/10</span></span>
-                        </div>
-                        <div>
-                            <span className="text-[12px]">{currentMovie.imdbVotes}</span>
-                        </div>
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            <div className="flex flex-col gap-1">
+                <span className="text-neutral-500 text-[11px] sm:text-[12px] font-bold">
+                    IMDb RATING
+                </span>
+                <Button variant="five" className="flex items-center gap-2 px-3 py-2">
+                    <FaStar className="text-yellow text-[20px] sm:text-[24px]" />
+                    <div className="flex flex-col leading-tight">
+                        <span className="text-[16px] sm:text-[18px] font-semibold">
+                            {currentMovie.imdbRating}
+                            <span className="text-[12px] sm:text-[14px]">/10</span>
+                        </span>
+                        <span className="text-[11px] sm:text-[12px] text-neutral-400">
+                            {currentMovie.imdbVotes}
+                        </span>
                     </div>
                 </Button>
             </div>
             <div className="flex flex-col gap-1">
-                <span className="text-neutral-500 text-[12px] font-bold">YOUR RATING</span>
-                <Button variant={'five'} className={'py-2'}>
-                    <GoStar className="text-blue-400 text-[22px]" />
-                    <span className="text-blue-400 text-[21px]">Rate</span>
+                <span className="text-neutral-500 text-[11px] sm:text-[12px] font-bold">
+                    YOUR RATING
+                </span>
+                <Button variant="five" className="flex items-center gap-2 px-3 py-2">
+                    <GoStar className="text-blue-400 text-[20px] sm:text-[22px]" />
+                    <span className="text-blue-400 text-[16px] sm:text-[18px] font-semibold">
+                        Rate
+                    </span>
                 </Button>
             </div>
-            <div className="px-4 flex flex-col gap-1">
-                <span className="text-neutral-500 text-[12px] font-bold">POPULARITY</span>
-                <Button variant={'five'} className="py-2">
-                    <GoStar className="text-green-400 text-[22px]" />
-                    <span className="text-white text-[21px]">829</span>
+            <div className="flex flex-col gap-1">
+                <span className="text-neutral-500 text-[11px] sm:text-[12px] font-bold">
+                    POPULARITY
+                </span>
+                <Button variant="five" className="flex items-center gap-2 px-3 py-2">
+                    <GoStar className="text-green-400 text-[20px] sm:text-[22px]" />
+                    <span className="text-white text-[16px] sm:text-[18px] font-semibold">
+                        829
+                    </span>
                 </Button>
             </div>
         </div>
+
     )
 }
 export default MovieRatings;

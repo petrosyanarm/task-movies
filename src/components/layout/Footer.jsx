@@ -11,12 +11,12 @@ function Footer() {
                 <div className="flex justify-center">
                     <Button className="px-8 py-2 bg-yellow rounded-3xl font-bold text-[14px]">Sign in for more success</Button>
                 </div>
-                <div className="flex px-6 py-4 gap-4 justify-center">
-                    <div className="px-6 py-2.5 rounded-xl flex flex-col gap-2 border border-gray-400">
+                <div className="flex flex-col md:flex-row px-6 py-4 gap-4 justify-center">
+                    <div className="w-full md:w-auto px-4 py-4 rounded-xl flex flex-col gap-3 border border-gray-400">
                         <div className="text-center">
                             <span className="text-white font-bold text-[18px]">Follow IMDb on social</span>
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex flex-wrap justify-center gap-4">
                             {FOOTER_LINKS_1.map((item) => {
                                 const Icon = item.icon
                                 return (
@@ -26,7 +26,7 @@ function Footer() {
                             })}
                         </div>
                     </div>
-                    <div className="px-6 py-2.5 rounded-xl flex gap-25 border border-gray-400">
+                    <div className="px-6 py-2.5 rounded-xl flex flex-col md:flex-row items-center md:gap-2 lg:gap-25 border border-gray-400">
                         <div className="flex flex-col pt-3">
                             <span className="text-white font-bold text-[18px]">Get the IMDb App</span>
                             <span className="text-white  text-[16px]">For Android and iOS</span>
@@ -36,15 +36,15 @@ function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="flex gap-4 justify-center">
-                    {FOOTER_LINKS_2.map((item)=>(
+                <div className="flex flex-wrap justify-center gap-3 px-4 text-center">
+                    {FOOTER_LINKS_2.map((item) => (
                         <div key={item.id} className="px-2 py-1">
                             <Link className="text-white hover:underline">{item.title}</Link>
                         </div>
                     ))}
                 </div>
-                <div className="flex gap-4 justify-center">
-                    {FOOTER_LINKS_3.map((item)=>(
+                <div className="flex flex-wrap justify-center gap-3 px-4 text-center">
+                    {FOOTER_LINKS_3.map((item) => (
                         <div key={item.id} className="px-2 py-1">
                             <Link className="text-white hover:underline">{item.title}</Link>
                         </div>

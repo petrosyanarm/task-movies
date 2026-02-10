@@ -6,9 +6,9 @@ function DefaultLayout() {
     return (
         <div className="h-screen">
             <Header />
-            <div className="bg-linear-to-r from-neutral-900 to-gray-700">
+            <div className="bg-linear-to-r from-neutral-900 to-gray-700 min-h-[calc(100dvh-60px)]">
                 <div className="w-full max-w-7xl mx-auto">
-                <Outlet />
+                    <Outlet />
                 </div>
             </div>
             <div className="bg-black">

@@ -1,30 +1,49 @@
+import { searchMovies } from "@/api/Api";
 import { useMoviesStore } from "@/store/useMoviesStore";
-import { useNavigate } from "react-router-dom";
-
+import { useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import ErrorImage from "@/assets/images/error_image.svg"
+import Loader from "@/components/ui/Loader";
 
 function SearchPage() {
     const navigate = useNavigate();
-    const movies = useMoviesStore((state) => state.movies);
+    const { searchPageMovies, setSearchPageMovies } = useMoviesStore();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [loading, setLoading] = useState(false);
+    const query = searchParams.get('q')
+    useEffect(() => {
+        setLoading(true)
+        const fetchMovies = async () => {
+            const data = await searchMovies(query)
+            setSearchPageMovies(data || [])
+            setLoading(false)
+        }
+        fetchMovies()
+    }, [query])
+    if (!query) return <div className="px-3 pt-8 pb-80">
+        <div className="flex flex-col gap-6 text-white">
+            <span className="text-5xl">Search IMDb</span>
+            <p className="text-2xl">Search IMDb by typing a word or phrase in the search box at the top of this page.</p>
+        </div>
+    </div>
     return (
-        <div className="px-3 py-8 flex gap-3 flex-col">
+        <div className="px-3 py-8 flex gap-5 flex-col">
+            {loading && <Loader />}
             <div>
-                <span className="text-2xl text-white">Search</span>
+                <span className="text-3xl text-white">Search "{query}"</span>
             </div>
-             {movies === 0 && (
-            <div className="absolute top-full left-0 w-full bg-neutral-900 text-white p-3 rounded shadow z-50">
-                No results
-            </div>
-        )}
             <div className="flex flex-col gap-5">
-            {movies.map((item) => (
-                <div className="w-[80%] flex border-b py-1 text-white" key={item.imdbID} onClick={() => navigate(`/movie/${item.imdbID}`)}>
-                    <img className="w-25 h-25 object-contain cursor-pointer" src={item.Poster} />
-                    <div className="flex flex-col">
-                        <span className="font-bold cursor-pointer">{item.Title}</span>
-                        <span>{item.Year}</span>
+                {searchPageMovies.map((item) => (
+                    <div className="w-[80%] flex border-b py-2 gap-3 text-white" key={item.imdbID} onClick={() => navigate(`/movie/${item.imdbID}`)}>
+                        <img src={item.Poster} onError={(e) => {
+                            e.currentTarget.src = ErrorImage
+                        }} className="h-25 object-contain cursor-pointer" />
+                        <div className="flex flex-col">
+                            <span className="font-bold cursor-pointer">{item.Title}</span>
+                            <span>{item.Year}</span>
+                        </div>
                     </div>
-                </div>
-            ))}
+                ))}
             </div>
         </div>
     )

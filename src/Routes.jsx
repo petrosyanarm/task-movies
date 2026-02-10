@@ -4,27 +4,27 @@ import HomePage from '@/pages/HomePage';
 import MoviesPage from "@/pages/MoviesPage";
 import SearchPage from "@/pages/SearchPage";
 
-function Routes(){
+function Routes() {
     const router = createBrowserRouter([
         {
-            path:"/",
-            element:<DefaultLayout />,
-            children:[
+            path: "/",
+            element: <DefaultLayout />,
+            children: [
                 {
-                    path:'/',
-                    element:<HomePage/>
+                    path: '/',
+                    element: <HomePage />
                 },
                 {
-                    path:'/find',
-                    element:<SearchPage/>
+                    path: '/find',
+                    element: <SearchPage />
                 },
                 {
-                    path:'/movie/:id',
-                    element:<MoviesPage/>
+                    path: '/movie/:id',
+                    element: <MoviesPage />
                 }
             ]
         }
     ])
-    return <RouterProvider router={router}/>
+    return <RouterProvider router={router} />
 }
 export default Routes;
