@@ -1,7 +1,9 @@
 import { FaStar } from "react-icons/fa";
 import { GoStar } from "react-icons/go";
 import Button from "@/components/ui/Button";
-function MovieRatings({ currentMovie }) {
+import { useMoviesStore } from "@/store/useMoviesStore";
+function MovieRatings() {
+    const { currentMovie } = useMoviesStore();
     return (
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <div className="flex flex-col gap-1">

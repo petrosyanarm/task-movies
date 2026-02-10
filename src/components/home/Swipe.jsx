@@ -5,16 +5,17 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useMoviesStore } from "@/store/useMoviesStore";
 import { useNavigate } from 'react-router-dom';
+import { twMerge } from 'tailwind-merge';
 
 function Swipe() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const { swiperMovies } = useMoviesStore();
     const navigate = useNavigate();
-
+    // const [begin,setBegin]=useState(true);
     return (
         <div>
             <button ref={prevRef} className="absolute left-18 lg:left-60 top-80 -translate-y-1/2 z-10 bg-yellow p-2 rounded-full cursor-pointer shadow-lg hover:bg-yellow-600">

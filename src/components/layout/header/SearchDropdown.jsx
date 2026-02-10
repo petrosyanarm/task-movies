@@ -70,7 +70,7 @@ function SearchDropdown() {
                 const Icon = item.icon
                 return (
                   <li key={item.id} onClick={() => { setSelected(item); setOpenTypes(false) }}
-                    className={twMerge(selected.id === item.id ? "text-yellow" : "text-white","px-3 py-2 cursor-pointer hover:bg-gray-700 flex items-center gap-3")}>
+                    className={twMerge(selected.id === item.id ? "text-yellow" : "text-white", "px-3 py-2 cursor-pointer hover:bg-gray-700 flex items-center gap-3")}>
                     <Icon className="text-[22px]" />{item.title}
                   </li>)
               })}
@@ -78,7 +78,7 @@ function SearchDropdown() {
         </div>
         <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} onFocus={() => setOpenDropdown(true)} className={`flex-1 w-[10%] px-3 py-1 focus:outline-none focus:rounded-[5px] focus:ring-2 focus:ring-yellow`} />
         {openDropdown && (
-          <div ref={ref} className="absolute top-11 left-0 w-full bg-neutral-900 text-white rounded shadow z-50">
+          <div ref={ref} className="absolute overflow-y-auto max-h-150 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-600 dark:[&::-webkit-scrollbar-track]:bg-neutral-700  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 top-11 left-0 w-full bg-neutral-900 text-white rounded shadow z-50">
             {loading && <Skeleton />}
             {error && <p className="text-base text-red-600">{error}</p>}
             {movies.length === 0 ? <p className="py-2 px-5">Your search is too general — try adding more letters.</p> : movies.map((movie) => (

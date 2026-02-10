@@ -1,8 +1,9 @@
-import { useState } from "react";
 import ErrorImage from "@/assets/images/error_image.svg"
 import Button from "@/components/ui/Button";
+import { useMoviesStore } from "@/store/useMoviesStore";
 
-function MoviePoster({ currentMovie }) {
+function MoviePoster() {
+    const { currentMovie } = useMoviesStore();
     return (
         <div className="flex flex-col gap-4 w-full">
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold">

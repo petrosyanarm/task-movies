@@ -8,7 +8,7 @@ import { twMerge } from "tailwind-merge";
 function FullMenu() {
     const { openMenu, setOpenMenu } = useMoviesStore();
     return (
-        <div className={twMerge(openMenu ? "translate-y-0 opacity-100 z-99" : "-translate-y-[200vh] z-99","fixed hidden lg:block top-0 h-full left-0 w-full  bg-neutral-900 text-white transition-transform duration-800 ease-in-out")}>
+        <div className={twMerge(openMenu ? "translate-y-0 opacity-100 z-99" : "-translate-y-[200vh] z-99","fixed hidden lg:block top-0 h-screen left-0 w-full  bg-neutral-900 text-white transition-transform duration-800 ease-in-out")}>
             <div className="max-w-7xl w-full mx-auto">
                 <div className="px-10 pt-6 pb-2 flex justify-between">
                     <div className="w-[9%] flex justify-center items-center">
@@ -28,7 +28,7 @@ function FullMenu() {
                     </div>
                     <MenuSection title="Awards & Events" icon="FaTv" links={MENU_LINKS_AWARDS} />
                 </div>
-                <div className="px-11 pr-35 flex justify-between ">
+                <div className="px-11 pr-50 flex justify-between ">
                     <MenuSection title="Celebs" icon="FaTv" links={MENU_LINKS_CELEBS} />
                     <MenuSection title="Community" icon="FaTv" links={MENU_LINKS_COMMUNITY} />
                 </div>

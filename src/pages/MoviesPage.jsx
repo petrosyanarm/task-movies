@@ -30,8 +30,8 @@ function MoviesPage() {
         <div className="px-6 py-6 text-white flex gap-2 lg:gap-0">
             {loading && <Loader />}
             {error && <p className="text-base text-red-600">{error}</p>}
-            <MoviePoster currentMovie={currentMovie} />
-            <MovieRatings currentMovie={currentMovie} />
+            <MoviePoster/>
+            <MovieRatings/>
         </div>
     )
 }
