@@ -21,7 +21,7 @@ function FullMenu() {
                     </Button>
                 </div>
                 <div className="px-11 pt-8 pr-35 flex justify-between pb-0">
-                    <MenuSection title={'Movies'} icon={'FaTv'} links={MENU_LINKS_MOVIES} />
+                    <MenuSection title="Movies" icon='FaTv' links={MENU_LINKS_MOVIES} />
                     <div className="flex flex-col gap-7">
                         <MenuSection title="TV Shows" icon="FaTv" links={MENU_LINKS_TV} />
                         <MenuSection title="Watch" icon="FaTv" links={MENU_LINKS_WATCH} />

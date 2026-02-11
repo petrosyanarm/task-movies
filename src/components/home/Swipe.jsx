@@ -5,23 +5,21 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { useMoviesStore } from "@/store/useMoviesStore";
 import { useNavigate } from 'react-router-dom';
-import { twMerge } from 'tailwind-merge';
 
 function Swipe() {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
     const { swiperMovies } = useMoviesStore();
     const navigate = useNavigate();
-    // const [begin,setBegin]=useState(true);
     return (
         <div>
-            <button ref={prevRef} className="absolute left-18 lg:left-60 top-80 -translate-y-1/2 z-10 bg-yellow p-2 rounded-full cursor-pointer shadow-lg hover:bg-yellow-600">
+            <button ref={prevRef} className="absolute left-22 sm:left-32 md:left-38 lg:left-60 top-80 -translate-y-1/2 z-10 bg-yellow p-2 rounded-full cursor-pointer shadow-lg hover:bg-yellow-600">
                 <IoIosArrowBack size={24} />
             </button>
-            <button ref={nextRef} className="absolute right-18 lg:right-60 top-80 -translate-y-1/2 z-10  bg-yellow p-2 rounded-full cursor-pointer shadow-lg hover:bg-yellow-600">
+            <button ref={nextRef} className="absolute right-22 sm:right-32 md:right-38 lg:right-60 top-80 -translate-y-1/2 z-10  bg-yellow p-2 rounded-full cursor-pointer shadow-lg hover:bg-yellow-600">
                 <IoIosArrowForward size={24} />
             </button>
             <Swiper className="w-[70%] flex justify-center items-center"

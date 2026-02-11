@@ -5,6 +5,7 @@ import LanguageDropdown from "@/components/layout/header/LanguageDropdown";
 import { useNavigate } from "react-router-dom";
 import FullMenu from "@/components/layout/header/FullMenu";
 import { useMoviesStore } from "@/store/useMoviesStore";
+import MobileMenu from "@/components/layout/header/MobileMenu";
 function Header() {
     const { setOpenMenu } = useMoviesStore()
     const navigate = useNavigate()
@@ -21,6 +22,7 @@ function Header() {
                             <span className="hidden lg:block text-white font-bold text-[16px]">Menu</span>
                         </Button>
                         <FullMenu />
+                        <MobileMenu/>
                         <div className="flex-1 max-w-180">
                             <SearchDropdown />
                         </div>

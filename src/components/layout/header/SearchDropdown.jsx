@@ -57,8 +57,8 @@ function SearchDropdown() {
   }
 
   return (
-    <div className="flex w-full relative rounded-[5px] bg-white">
-      <div className="flex w-full relative rounded-l-[5px]">
+    <div className="flex w-full sm:relative rounded-[5px] bg-white">
+      <div className="flex w-full sm:relative  rounded-l-[5px]">
         <div className="px-2 py-1 hidden h-full hover:bg-gray-200 rounded-l-[5px] md:flex items-center gap-2">
           <Button onClick={() => setOpenTypes((prev) => !prev)} className="w-full flex gap-1 items-center focus:outline-none">
             <span className="flex text-[14px] items-center text-black gap-2">
@@ -78,7 +78,7 @@ function SearchDropdown() {
         </div>
         <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} onFocus={() => setOpenDropdown(true)} className={`flex-1 w-[10%] px-3 py-1 focus:outline-none focus:rounded-[5px] focus:ring-2 focus:ring-yellow`} />
         {openDropdown && (
-          <div ref={ref} className="absolute overflow-y-auto max-h-150 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-600 dark:[&::-webkit-scrollbar-track]:bg-neutral-700  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 top-11 left-0 w-full bg-neutral-900 text-white rounded shadow z-50">
+          <div ref={ref} className="absolute  overflow-y-auto max-h-150 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-600 dark:[&::-webkit-scrollbar-track]:bg-neutral-700  dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500 top-15.5 sm:top-11 left-0 w-full bg-neutral-900 text-white rounded shadow z-50">
             {loading && <Skeleton />}
             {error && <p className="text-base text-red-600">{error}</p>}
             {movies.length === 0 ? <p className="py-2 px-5">Your search is too general — try adding more letters.</p> : movies.map((movie) => (
@@ -100,7 +100,7 @@ function SearchDropdown() {
             ))}
           </div>
         )}
-        <div className="flex absolute right-0 top-0.5 items-center px-2 py-1 justify-center">
+        <div className="flex absolute right-16 top-4 sm:right-0 sm:top-0.5 items-center px-2 py-1 justify-center">
           <Button onClick={handleSearch}>
             <IoIosSearch className="w-8 h-5" />
           </Button>
