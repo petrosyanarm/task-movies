@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { FaTv } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import Button from "@/components/ui/Button";
-function MobileMenuSection({ title, links }) {
+function MobileMenuSection({ title, links,icon }) {
     const [open, setOpen] = useState(false);
     return (
         <div className="flex flex-col gap-4">
             <div className={twMerge("flex w-full justify-between ")} onClick={() => setOpen(!open)}>
                 <div className="flex items-center gap-4">
-                    <FaTv className="text-[20px] text-neutral-400" />
+                    <div className="text-[25px] text-neutral-400">{icon}</div>
                     <span className="text-base">{title}</span>
                 </div>
                 <div className="flex items-center">

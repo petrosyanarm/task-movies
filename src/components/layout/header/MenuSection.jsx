@@ -1,10 +1,9 @@
-import { FaTv } from "react-icons/fa";
 
-function MenuSection({ title, links }) {
+function MenuSection({ title, links, icon }) {
   return (
     <div className="flex gap-5">
-      <div>
-        <FaTv className="text-[30px] text-yellow" />
+      <div className="text-yellow text-[30px]">
+        {icon}
       </div>
       <div className="flex flex-col gap-3">
         <span className="font-bold text-2xl">{title}</span>

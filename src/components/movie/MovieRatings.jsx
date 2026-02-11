@@ -1,9 +1,7 @@
 import { FaStar } from "react-icons/fa";
 import { GoStar } from "react-icons/go";
 import Button from "@/components/ui/Button";
-import { useMoviesStore } from "@/store/useMoviesStore";
-function MovieRatings() {
-    const { currentMovie } = useMoviesStore();
+function MovieRatings({ movie }) {
     return (
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <div className="flex flex-col gap-1">
@@ -14,11 +12,11 @@ function MovieRatings() {
                     <FaStar className="text-yellow text-[20px] sm:text-[24px]" />
                     <div className="flex flex-col leading-tight">
                         <span className="text-[16px] sm:text-[18px] font-semibold">
-                            {currentMovie.imdbRating}
+                            {movie.imdbRating}
                             <span className="text-[12px] sm:text-[14px]">/10</span>
                         </span>
                         <span className="text-[11px] sm:text-[12px] text-neutral-400">
-                            {currentMovie.imdbVotes}
+                            {movie.imdbVotes}
                         </span>
                     </div>
                 </Button>

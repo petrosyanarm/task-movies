@@ -1,16 +1,15 @@
-import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
 import { IoIosSearch } from "react-icons/io";
-import { FaTv } from "react-icons/fa";
-import { MdPeople } from "react-icons/md";
+import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
+import { FaTv,MdLocalMovies,MdVideoLibrary,MdStars,MdPeople,BiWorld } from "@/components/ui/Icons"
 
 export const SEARCH_TYPES = [
   { id: 1, title: "All", icon: IoIosSearch },
-  { id: 2, title: "Titles", icon: IoIosSearch },
+  { id: 2, title: "Titles", icon: MdLocalMovies },
   { id: 3, title: "TV episodes", icon: FaTv },
   { id: 4, title: "Celebs", icon: MdPeople },
-  { id: 5, title: "Companies", icon: IoIosSearch },
-  { id: 6, title: "Keywords", icon: FaTv },
-  { id: 7, title: "Advanced Search", icon: MdPeople },
+  { id: 5, title: "Companies", icon: MdLocalMovies },
+  { id: 6, title: "Keywords", icon: MdVideoLibrary },
+  { id: 7, title: "Advanced Search", icon: MdStars },
 ];
 
 export const LANGUAGES = [

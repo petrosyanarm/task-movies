@@ -22,7 +22,7 @@ function Header() {
                             <span className="hidden lg:block text-white font-bold text-[16px]">Menu</span>
                         </Button>
                         <FullMenu />
-                        <MobileMenu/>
+                        <MobileMenu />
                         <div className="flex-1 max-w-180">
                             <SearchDropdown />
                         </div>

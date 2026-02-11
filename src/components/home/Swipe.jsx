@@ -4,15 +4,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "@/components/ui/Icons";
 import { useRef } from "react";
-import { useMoviesStore } from "@/store/useMoviesStore";
 import { useNavigate } from 'react-router-dom';
 
-function Swipe() {
+function Swipe({ movies }) {
     const prevRef = useRef(null);
     const nextRef = useRef(null);
-    const { swiperMovies } = useMoviesStore();
     const navigate = useNavigate();
     return (
         <div>
@@ -30,7 +28,7 @@ function Swipe() {
                     swiper.params.navigation.prevEl = prevRef.current;
                     swiper.params.navigation.nextEl = nextRef.current;
                 }}>
-                {swiperMovies.map((movie) => {
+                {movies.map((movie) => {
                     const highResPoster = movie.Poster?.replace("_SX300", "_SX800");
                     return (
                         <SwiperSlide className="flex justify-center items-center" key={movie.imdbID}>

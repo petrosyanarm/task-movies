@@ -12,15 +12,15 @@ function LanguageDropdown() {
     useOutsideClick(ref, () => setOpen(false))
     return (
         <div className='hidden lg:flex' >
-            <div ref={ref} onClick={() => setOpen(!open)} className="relative px-3 py-1.5 cursor-pointer rounded-2xl flex items-center gap-2 hover:bg-gray-700">
+            <div ref={ref} onClick={() => setOpen(!open)} className="relative px-2 py-1 cursor-pointer rounded-2xl flex items-center gap-2 hover:bg-gray-700">
                 <Button variant={'secondary'}>
-                    <span className="flex text-[14px] items-center text-white gap-2">
+                    <span className="flex text-[14px] items-center font-bold text-white gap-2">
                         {selected.code}
-                    </span><RiArrowDownSFill className="text-[18px]" />
+                    </span><RiArrowDownSFill className={twMerge("transition-transform text-[18px]", open ? "rotate-180" : "")}/>
                 </Button>
                 <div>
                     {open && (
-                        <ul className="absolute w-70 flex flex-col gap-2 justify-center right-0 top-10 bg-neutral-900 rounded shadow z-999">
+                        <ul className="absolute w-70 py-3 flex flex-col gap-2 justify-center right-0 top-10 bg-neutral-900 rounded shadow z-999">
                             {LANGUAGES.map((item) => {
                                 const Icon = item.icon
                                 return (

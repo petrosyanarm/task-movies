@@ -1,5 +1,5 @@
 import { FOOTER_LINKS_1, FOOTER_LINKS_2, FOOTER_LINKS_3 } from "@/utils/constants/FooterLinks";
-import { BsQrCode } from "react-icons/bs";
+import { BsQrCode } from "@/components/ui/Icons";
 import { Link } from "react-router-dom";
 import Button from "@/components/ui/Button";
 
