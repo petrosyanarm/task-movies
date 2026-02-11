@@ -4,15 +4,11 @@ import { twMerge } from "tailwind-merge";
 import { IoMdClose } from "react-icons/io";
 import MobileMenuSection from "@/components/layout/header/MobileMenuSection";
 import { MENU_LINKS_AWARDS, MENU_LINKS_CELEBS, MENU_LINKS_COMMUNITY, MENU_LINKS_MOVIES, MENU_LINKS_TV, MENU_LINKS_WATCH } from "@/utils/constants/MenuLinks";
-import { useOutsideClick } from "@/utils/hooks/useOutsideClick";
-import { useRef } from "react";
 
 function MobileMenu() {
     const { openMenu, setOpenMenu } = useMoviesStore();
-    const ref = useRef(null)
-    useOutsideClick(ref, () => setOpenMenu(false))
     return (
-        <div ref={ref} className={twMerge(openMenu ? "translate-x-0 opacity-100 z-99" : "-translate-x-[200vh] z-99", "fixed overflow-y-scroll lg:hidden top-0 h-screen left-0 w-70  bg-neutral-900 text-white transition-transform duration-800 ease-in-out")}>
+        <div className={twMerge(openMenu ? "translate-x-0 opacity-100 z-99" : "-translate-x-[200vh] z-99", "fixed overflow-y-scroll lg:hidden top-0 h-screen left-0 w-70  bg-neutral-900 text-white transition-transform duration-800 ease-in-out")}>
             <div className="py-4 px-4 flex justify-end">
                 <Button onClick={() => setOpenMenu(false)}>
                     <IoMdClose className="text-[25px]" />

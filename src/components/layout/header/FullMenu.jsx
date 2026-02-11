@@ -17,7 +17,7 @@ function FullMenu() {
                         </div>
                     </div>
                     <Button onClick={() => setOpenMenu(false)}>
-                        <IoIosCloseCircleOutline className="text-yellow fill-yellow stroke-yellow text-6xl" />
+                        <IoIosCloseCircleOutline className="text-yellow transition-colors duration-300  fill-yellow rounded-full hover:bg-yellow hover:fill-white text-6xl" />
                     </Button>
                 </div>
                 <div className="px-11 pt-8 pr-35 flex justify-between pb-0">

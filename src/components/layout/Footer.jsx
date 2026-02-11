@@ -3,7 +3,6 @@ import { BsQrCode } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Button from "@/components/ui/Button";
 
-
 function Footer() {
     return (
         <div className="max-w-5xl w-full mx-auto">
