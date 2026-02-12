@@ -1,4 +1,3 @@
-import { searchMovies } from "@/api/Api";
 import { SEARCH_TYPES } from "@/utils/constants/Languages";
 import { useDebounce } from "@/utils/hooks/Debounce";
 import { useState, useEffect, useRef } from "react";
@@ -10,7 +9,7 @@ import Button from "@/components/ui/Button";
 import { useOutsideClick } from "@/utils/hooks/useOutsideClick";
 import Skeleton from "@/components/ui/Skeleton";
 import { twMerge } from 'tailwind-merge';
-import { useQuery } from "@tanstack/react-query";
+import { useSearchMovies } from "@/utils/hooks/useQuery";
 
 function SearchDropdown() {
   const [openTypes, setOpenTypes] = useState(false);
@@ -22,11 +21,7 @@ function SearchDropdown() {
   const ref = useRef(null);
   useOutsideClick(ref, () => { setOpenDropdown(false); setOpenTypes(false) });
 
-  const { data: movies=[], isLoading, isError, error } = useQuery({
-    queryKey: ['search', debouncedQuery],
-    queryFn: () => searchMovies(debouncedQuery),
-    enabled: !!debouncedQuery
-  })
+  const { data: movies = [], isLoading } = useSearchMovies(debouncedQuery)
 
   useEffect(() => {
     if (debouncedQuery) {
@@ -46,10 +41,10 @@ function SearchDropdown() {
       <div className="flex w-full sm:relative  rounded-l-[5px]">
         <div className="px-2 py-1 hidden h-full hover:bg-gray-200 rounded-l-[5px] md:flex items-center gap-2">
           <Button onClick={() => setOpenTypes((prev) => !prev)} className="w-full flex gap-1 items-center focus:outline-none">
-            <span className="flex text-[14px] items-center text-black gap-1">
+            <span className="flex text-sm items-center text-black gap-1">
               {selected.title} <RiArrowDownSFill className={twMerge("transition-transform text-xl", openTypes ? "rotate-180" : "")} /></span>
           </Button>
-          {openTypes && 
+          {openTypes &&
             <ul ref={ref} className="absolute pt-1 pb-2 left-0 top-10 w-50 bg-neutral-900 flex flex-col gap-3 rounded shadow z-999">
               {SEARCH_TYPES.map((item) => {
                 const Icon = item.icon

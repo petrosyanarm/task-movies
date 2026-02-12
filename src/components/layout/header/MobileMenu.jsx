@@ -25,11 +25,11 @@ function MobileMenu() {
             </div>
             <div className="flex flex-col px-4 py-8">
                 <h2 className="font-bold text-base text-neutral-400">IMDbPro</h2>
-                <span className="text-[14px] text-white">For Industry Professionals</span>
+                <span className="text-sm text-white">For Industry Professionals</span>
             </div>
             <div className="flex flex-col px-4 pb-8">
                 <h2 className="font-bold text-base text-neutral-400">LANGUAGE</h2>
-                <span className="text-[14px] text-white">English (United States)</span>
+                <span className="text-sm text-white">English (United States)</span>
             </div>
         </div>
     )

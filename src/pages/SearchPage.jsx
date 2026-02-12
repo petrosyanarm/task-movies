@@ -1,20 +1,18 @@
-import { searchMovies } from "@/api/Api";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import ErrorImage from "@/assets/images/error_image.svg"
 import Loader from "@/components/ui/Loader";
-import { useQuery } from "@tanstack/react-query";
+import { useSearchMovies } from "@/utils/hooks/useQuery";
 
 function SearchPage() {
     const navigate = useNavigate();
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
     const query = searchParams.get('q')
-    const { data: movies, isLoading, isError, error } = useQuery({
-        queryKey: ['search', query],
-        queryFn: () => searchMovies(query),
-        enabled: !!query
-    })
+    const { data: movies, isLoading, isError, } = useSearchMovies(query)
     if (isLoading) return <Loader />
-    if (isError) return <p>Error loading movies</p>;
+    if (isError) return (
+        <div className="px-3 py-5">
+            <p className="text-3xl font-bold text-white">Search "{query}"</p><p className="text-base py-2 text-white">Not Movies Found</p>
+        </div>)
     if (!movies?.length) return <div className="px-3 pt-8 pb-80">
         <div className="flex flex-col gap-6 text-white">
             <span className="text-5xl">Search IMDb</span>

@@ -8,7 +8,7 @@ function Footer() {
         <div className="max-w-5xl w-full mx-auto">
             <div className="py-4 flex flex-col gap-2">
                 <div className="flex justify-center">
-                    <Button className="px-8 py-2 bg-yellow rounded-3xl font-bold text-[14px]">Sign in for more success</Button>
+                    <Button className="px-8 py-2 bg-yellow rounded-3xl font-bold text-sm">Sign in for more success</Button>
                 </div>
                 <div className="flex flex-col md:flex-row px-6 py-4 gap-4 justify-center">
                     <div className="w-full md:w-auto px-4 py-4 rounded-xl flex flex-col gap-3 border border-gray-400">
@@ -51,7 +51,7 @@ function Footer() {
                 </div>
                 <div className="py-5 flex flex-col gap-6 items-center">
                     <span className="text-base text-white">An amazon company</span>
-                    <span className="text-[14px] text-white">1990-2026 by IMDb.com, Inc.</span>
+                    <span className="text-sm text-white">1990-2026 by IMDb.com, Inc.</span>
                 </div>
             </div>
         </div>

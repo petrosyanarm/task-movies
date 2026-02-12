@@ -14,7 +14,7 @@ export const api = axios.create({
 const fetchQuery = async (query) => {
   const res = await api.get(`${BASE_URL}?apikey&s=${query}`);
   const data = res.data.Search;
-  return data;
+  return data || [];
 };
 
 export const searchMovies = (query) => fetchQuery(query);

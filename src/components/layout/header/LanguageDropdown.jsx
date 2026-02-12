@@ -14,7 +14,7 @@ function LanguageDropdown() {
         <div className='hidden lg:flex' >
             <div ref={ref} onClick={() => setOpen(!open)} className="relative px-2 py-1 cursor-pointer rounded-2xl flex items-center gap-2 hover:bg-gray-700">
                 <Button variant={'secondary'}>
-                    <span className="flex text-[14px] items-center font-bold text-white gap-2">
+                    <span className="flex text-sm items-center font-bold text-white gap-2">
                         {selected.code}
                     </span><RiArrowDownSFill className={twMerge("transition-transform text-[18px]", open ? "rotate-180" : "")}/>
                 </Button>

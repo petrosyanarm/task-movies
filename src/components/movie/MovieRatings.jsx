@@ -9,11 +9,11 @@ function MovieRatings({ movie }) {
                     IMDb RATING
                 </span>
                 <Button variant="five" className="flex items-center gap-2 px-3 py-2">
-                    <FaStar className="text-yellow text-[20px] sm:text-[24px]" />
+                    <FaStar className="text-yellow text-xl sm:text-[24px]" />
                     <div className="flex flex-col leading-tight">
                         <span className="text-[16px] sm:text-[18px] font-semibold">
                             {movie.imdbRating}
-                            <span className="text-[12px] sm:text-[14px]">/10</span>
+                            <span className="text-[12px] sm:text-sm">/10</span>
                         </span>
                         <span className="text-[11px] sm:text-[12px] text-neutral-400">
                             {movie.imdbVotes}
@@ -26,7 +26,7 @@ function MovieRatings({ movie }) {
                     YOUR RATING
                 </span>
                 <Button variant="five" className="flex items-center gap-2 px-3 py-2">
-                    <GoStar className="text-blue-400 text-[20px] sm:text-[22px]" />
+                    <GoStar className="text-blue-400 text-xl sm:text-[22px]" />
                     <span className="text-blue-400 text-[16px] sm:text-[18px] font-semibold">
                         Rate
                     </span>
@@ -37,7 +37,7 @@ function MovieRatings({ movie }) {
                     POPULARITY
                 </span>
                 <Button variant="five" className="flex items-center gap-2 px-3 py-2">
-                    <GoStar className="text-green-400 text-[20px] sm:text-[22px]" />
+                    <GoStar className="text-green-400 text-xl sm:text-[22px]" />
                     <span className="text-white text-[16px] sm:text-[18px] font-semibold">
                         829
                     </span>

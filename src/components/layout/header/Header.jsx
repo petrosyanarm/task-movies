@@ -29,15 +29,15 @@ function Header() {
                     </div>
                     <div className="flex items-center gap-2">
                         <Button variant="primary" className="hidden lg:flex">
-                            <span className="text-white font-bold text-[14px]">
+                            <span className="text-white font-bold text-sm">
                                 IMDb <span className="text-blue-400">Pro</span>
                             </span>
                         </Button>
                         <Button variant="primary" className="hidden lg:flex">
-                            <span className="text-white font-bold text-[14px]">Watchlist</span>
+                            <span className="text-white font-bold text-sm">Watchlist</span>
                         </Button>
                         <Button variant={'primary'} className="px-2 lg:px-3">
-                            <span className="text-white text-[11px] lg:text-[14px] font-bold">Sign in</span>
+                            <span className="text-white text-[11px] lg:text-sm font-bold">Sign in</span>
                         </Button>
                         <LanguageDropdown />
                     </div>
