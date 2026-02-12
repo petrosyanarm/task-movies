@@ -39,13 +39,13 @@ function SearchDropdown() {
   return (
     <div className="flex w-full sm:relative rounded-[5px] bg-white">
       <div className="flex w-full sm:relative  rounded-l-[5px]">
-        <div className="px-2 py-1 hidden h-full hover:bg-gray-200 rounded-l-[5px] md:flex items-center gap-2">
-          <Button onClick={() => setOpenTypes(!openTypes)} className="w-full flex gap-1 items-center focus:outline-none">
+        <div ref={ref} onClick={() => setOpenTypes(!openTypes)} className="px-2 py-1 relative cursor-pointer border-r border-r-gray-400 hidden h-full hover:bg-gray-200 rounded-l-[5px] md:flex items-center gap-2">
+          <Button className="w-full flex gap-1 items-center ">
             <span className="flex text-sm items-center text-black gap-1">
               {selected.title} <RiArrowDownSFill className={twMerge("transition-transform text-xl", openTypes ? "rotate-180" : "")} /></span>
           </Button>
           {openTypes &&
-            <ul ref={ref} className="absolute pt-1 pb-2 left-0 top-10 w-50 bg-neutral-900 flex flex-col gap-3 rounded shadow z-999">
+            <ul className="absolute pt-1 pb-2 left-0 top-10 w-50 bg-neutral-900 flex flex-col gap-3 rounded shadow z-999">
               {SEARCH_TYPES.map((item) => {
                 const Icon = item.icon
                 return (

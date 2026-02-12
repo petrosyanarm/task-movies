@@ -17,7 +17,7 @@ function HomeSwiper() {
     if (isLoading) return <Loader />
     if (isError) return <p className="text-base text-red-600">{error.message}</p>
     return (
-        <div className="relative py-10">
+        <div className="relative py-20">
             <Swipe
                 className="w-[70%] flex justify-center items-center" prevRef={prevRef} nextRef={nextRef}
                 modules={[Navigation]}
