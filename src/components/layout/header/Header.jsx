@@ -15,11 +15,11 @@ function Header() {
                 <div className="flex items-center justify-between py-3">
                     <div className="flex items-center gap-2 flex-1">
                         <div className="bg-yellow px-1 cursor-pointer rounded-lg" onClick={() => navigate('/')}>
-                            <span className="text-black text-[24px] font-bold">IMDb</span>
+                            <span className="text-black text-2xl font-bold">IMDb</span>
                         </div>
                         <Button variant="primary" className="flex items-center gap-1" onClick={() => setOpenMenu(true)}>
                             <RxHamburgerMenu className="text-white" />
-                            <span className="hidden lg:block text-white font-bold text-[16px]">Menu</span>
+                            <span className="hidden lg:block text-white font-bold text-base">Menu</span>
                         </Button>
                         <FullMenu />
                         <MobileMenu />

@@ -13,7 +13,7 @@ function Footer() {
                 <div className="flex flex-col md:flex-row px-6 py-4 gap-4 justify-center">
                     <div className="w-full md:w-auto px-4 py-4 rounded-xl flex flex-col gap-3 border border-gray-400">
                         <div className="text-center">
-                            <span className="text-white font-bold text-[18px]">Follow IMDb on social</span>
+                            <span className="text-white font-bold text-lg">Follow IMDb on social</span>
                         </div>
                         <div className="flex flex-wrap justify-center gap-4">
                             {FOOTER_LINKS_1.map((item) => {
@@ -27,8 +27,8 @@ function Footer() {
                     </div>
                     <div className="px-6 py-2.5 rounded-xl flex flex-col md:flex-row items-center md:gap-2 lg:gap-25 border border-gray-400">
                         <div className="flex flex-col pt-3">
-                            <span className="text-white font-bold text-[18px]">Get the IMDb App</span>
-                            <span className="text-white  text-[16px]">For Android and iOS</span>
+                            <span className="text-white font-bold text-lg">Get the IMDb App</span>
+                            <span className="text-white  text-base">For Android and iOS</span>
                         </div>
                         <div className="border mt-1">
                             <BsQrCode className="text-white w-16 h-16" />

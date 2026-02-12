@@ -40,7 +40,7 @@ function SearchDropdown() {
     <div className="flex w-full sm:relative rounded-[5px] bg-white">
       <div className="flex w-full sm:relative  rounded-l-[5px]">
         <div className="px-2 py-1 hidden h-full hover:bg-gray-200 rounded-l-[5px] md:flex items-center gap-2">
-          <Button onClick={() => setOpenTypes((prev) => !prev)} className="w-full flex gap-1 items-center focus:outline-none">
+          <Button onClick={() => setOpenTypes(!openTypes)} className="w-full flex gap-1 items-center focus:outline-none">
             <span className="flex text-sm items-center text-black gap-1">
               {selected.title} <RiArrowDownSFill className={twMerge("transition-transform text-xl", openTypes ? "rotate-180" : "")} /></span>
           </Button>

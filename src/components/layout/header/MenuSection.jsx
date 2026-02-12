@@ -2,7 +2,7 @@
 function MenuSection({ title, links, icon }) {
   return (
     <div className="flex gap-5">
-      <div className="text-yellow text-[30px]">
+      <div className="text-yellow text-3xl">
         {icon}
       </div>
       <div className="flex flex-col gap-3">

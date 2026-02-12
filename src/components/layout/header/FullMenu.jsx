@@ -13,7 +13,7 @@ function FullMenu() {
                 <div className="px-10 pt-6 pb-2 flex justify-between">
                     <div className="w-[9%] flex justify-center items-center">
                         <div className="bg-yellow px-1 cursor-pointer rounded-lg">
-                            <span className="text-black text-[35px] font-bold">IMDb</span>
+                            <span className="text-black text-4xl font-bold">IMDb</span>
                         </div>
                     </div>
                     <Button onClick={() => setOpenMenu(false)}>

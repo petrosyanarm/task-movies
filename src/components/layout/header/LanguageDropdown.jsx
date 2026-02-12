@@ -16,7 +16,7 @@ function LanguageDropdown() {
                 <Button variant={'secondary'}>
                     <span className="flex text-sm items-center font-bold text-white gap-2">
                         {selected.code}
-                    </span><RiArrowDownSFill className={twMerge("transition-transform text-[18px]", open ? "rotate-180" : "")}/>
+                    </span><RiArrowDownSFill className={twMerge("transition-transform text-lg", open ? "rotate-180" : "")}/>
                 </Button>
                 <div>
                     {open && (

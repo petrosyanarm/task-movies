@@ -8,7 +8,7 @@ function MobileMenuSection({ title, links,icon }) {
         <div className="flex flex-col gap-4">
             <div className={twMerge("flex w-full justify-between ")} onClick={() => setOpen(!open)}>
                 <div className="flex items-center gap-4">
-                    <div className="text-[25px] text-neutral-400">{icon}</div>
+                    <div className="text-2xl text-neutral-400">{icon}</div>
                     <span className="text-base">{title}</span>
                 </div>
                 <div className="flex items-center">
